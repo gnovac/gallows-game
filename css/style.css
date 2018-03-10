@@ -1,0 +1,93 @@
+body {
+    background-color: #000;
+    color: #d3d3d3;
+    font-size: 28px;
+    font-family: 'Inconsolata';
+    font-weight: 700;
+    margin: 10px 50px;
+}
+
+#container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    
+}
+
+#container h1{
+    font-size: 2em;
+    text-align: center;
+}
+
+#board {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 48px;
+    min-height: 60px;
+}
+
+#gallows {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    text-align: center;
+}
+
+#alphabet {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.letters {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid #808080;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.letters:hover {
+    background-color: #222;
+    color: #fff;
+    border: 3px solid #fff;
+}
+
+.reset {
+    color: #008000;
+    cursor: pointer;
+    font-size: 48px;
+}
+
+.reset:hover {
+    color: #fff;
+}
