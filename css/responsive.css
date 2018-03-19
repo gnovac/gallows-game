@@ -1,8 +1,9 @@
-@media all and (min-width: 1200px){
+@media all and (min-width: 1200px) {
     .letters{
         -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-        flex: 1 1 100%;
+        -ms-flex: 1 1 10%;
+        flex: 1 1 10%;
+        margin: 10px 5px;
     }
     
     img{
@@ -11,8 +12,8 @@
     
     #alphabet{
         -webkit-box-flex: 1;
-        -ms-flex: 1 1 20%;
-        flex: 1 1 20%;
+        -ms-flex: 1 1 30%;
+        flex: 1 1 30%;
     }
 }
 
