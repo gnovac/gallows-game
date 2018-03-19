@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
     start();
 });
 
-//losowanie hasła
+//tablica haseł
 var passwordsTable = new Array(10);
 passwordsTable[0] = "Red Hot Chili Peppers";
 passwordsTable[1] = "Radiohead";
@@ -15,25 +15,25 @@ passwordsTable[7] = "Nothing Else Matter";
 passwordsTable[8] = "Rage Against the Machine";
 passwordsTable[9] = "The Smashing Pumpkins";
 
-function drawn()
-{
-var drawn_number = Math.round(Math.random() * passwordsTable.length);
-drawnPasswords = passwordsTable[drawn_number];
+//losowanie hasła
+function drawn() {
+    var drawn_number = Math.round(Math.random() * passwordsTable.length);
+    drawnPasswords = passwordsTable[drawn_number];
 }
 
 drawn();
 
+//zmienne globalne
 var password = drawnPasswords;
-
 password = password.toUpperCase();
 
 var passwordLength = password.length;
 var HowMuchMiss = 0;
 var yes = new Audio("wav/yes.wav");
 var no = new Audio("wav/no.wav");
-
 hiddenPassword = "";
 
+//podmiana hasła na spacje i kreski
 for (i = 0; i < passwordLength; i++) {
     if (password.charAt(i) == " ") {
         hiddenPassword = hiddenPassword + " ";
@@ -46,7 +46,7 @@ function writePassword() {
     document.getElementById("board").innerHTML = hiddenPassword;
 }
 
-
+//tablica liter
 var letters = new Array(35);
 
 letters[0] = "A";
@@ -85,6 +85,7 @@ letters[32] = "Z";
 letters[33] = "Ż";
 letters[34] = "Ź";
 
+//przypisanie tablicy z alfabetem do liter
 function start() {
     var innerDiv = "";
 
@@ -98,7 +99,7 @@ function start() {
     writePassword();
 }
 
-
+//podmiana liter występująych w haśle po wybraniu prawidłowej
 String.prototype.setChar = function (place, char) {
     if (place > this.length - 1) return this.toString();
     else return this.substr(0, place) + char + this.substr(place + 1);
@@ -116,7 +117,7 @@ function check(nb) {
             match = true;
         }
     }
-
+    //style css dla trafień
     if (match == true) {
         yes.play();
         var element = "let" + nb;
@@ -135,18 +136,18 @@ function check(nb) {
         document.getElementById(element).style.cursor = "default"
         document.getElementById(element).setAttribute("onclick", ";");
 
-        //miss
+        //podmiana obrazka na kolejny z folderu img po błędnym trafieniu
         HowMuchMiss++;
         var image = "img/s" + HowMuchMiss + ".jpg";
         document.getElementById("gallows").innerHTML = '<img src="' + image + '" alt="" />';
     }
 
-    //win
+    //wygrana
     if (password == hiddenPassword) {
         document.getElementById("alphabet").innerHTML = "Tak jest! Podano prawidłowe hasło: <br />" + password + '<br /> <br /><span class ="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
     }
 
-    //lose
+    //przegrana
     if (HowMuchMiss >= 9) {
         document.getElementById("alphabet").innerHTML = "Przegrana! Podano prawidłowe hasło: <br />" + password + '<br /> <br /><span class ="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
     }
